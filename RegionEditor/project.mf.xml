@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest>
     <application name="RegionEditor">
         <crown name="RegionEditor">
@@ -14,6 +14,6 @@
         <meta key="priority">low</meta>
         <meta key="read-protected">false</meta>
         <meta key="copy-protected">false</meta>
-        <entry path="scripts" default="RegionEditor.lua"/>
+        <entry default="RegionEditor.lua" path="scripts"/>
     </application>
 </manifest>
