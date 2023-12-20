@@ -28,7 +28,7 @@ local installedEditorIconic
 
 --Start of Function and Event Scope---------------------------------------------
 
--- Entrypoint for the function and event scope
+---Entrypoint for the function and event scope
 local function main()
   viewer:clear()
   -- Adding image to viewer with the defined ID
@@ -40,8 +40,9 @@ end
 Script.register('Engine.OnStarted', main)
 -- serve API in global scope
 
--- Is called when the installed editor detects changes of the iconic in the viewer
---@handleOnChange(iconicid:string,iconic:object)
+---Is called when the installed editor detects changes of the iconic in the viewer
+---@param iconicid string
+---@param iconic Object
 local function handleOnChange(iconicid, iconic)
   -- Checking if selected iconic is the added rectangle
   if iconicid == rectangleID and 'RECTANGLE' == iconic:getType() then
@@ -63,8 +64,10 @@ local function handleOnChange(iconicid, iconic)
 end
 View.register(viewer, 'OnChange', handleOnChange)
 
--- Is called when the viewer detects a pointer action and raises the "OnPointer" event
---@handleOnPointer(iconicid:string,pointeractiontype:enum,pointertype:enum)
+---Is called when the viewer detects a pointer action and raises the "OnPointer" event
+---@param iconicid string
+---@param pointeractiontype enum
+---@param pointertype enum
 local function handleOnPointer(iconicid, pointeractiontype, pointertype)
   if pointertype == 'PRIMARY' and pointeractiontype == 'CLICKED' then
     if installedEditorIconic == iconicid then
@@ -98,7 +101,6 @@ local function handleOnPointer(iconicid, pointeractiontype, pointertype)
 end
 View.register(viewer, 'OnPointer', handleOnPointer)
 
---@updateView():
 local function updateView()
   viewer:clear()
   -- Adding image to viewer with the defined ID
